@@ -16,7 +16,7 @@ getStringWithCarriageReturns : String -> String
 getStringWithCarriageReturns str =
     str
         |> String.split "\n"
-        |> String.join "\x0D"
+        |> String.join "\r"
 
 
 getCharStringFromDecimal : Int -> String

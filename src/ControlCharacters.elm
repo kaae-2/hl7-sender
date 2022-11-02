@@ -6,6 +6,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import View.Layout.Modal as Layout exposing (view)
+import Debug
 
 
 -- MODEL
@@ -98,7 +99,7 @@ viewInput controlCharacter labelText inputMsg =
         , input
             [ class "form-control"
             , onInput inputMsg
-            , value (Basics.toString controlCharacter)
+            , value (Debug.toString controlCharacter)
             ]
             []
         , label [ class "settings-label-control-ascii" ] [ text (viewAsciiCharacter controlCharacter) ]
@@ -112,7 +113,7 @@ viewAsciiCharacter character =
         "N/A"
     else
         Char.fromCode character
-            |> Basics.toString
+            |> Debug.toString
             |> printStr
 
 
@@ -146,10 +147,10 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         ResetControlCharacters ->
-            init ! []
+            (Model, Cmd.none)
 
         _ ->
-            updateForm msg model ! []
+            updateForm msg model (Model, Cmd.none)
 
 
 updateForm : Msg -> Model -> Model

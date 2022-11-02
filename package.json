@@ -4,7 +4,7 @@
   "description": "HL7 Sending utility for testing a downstream HL7 processing system.",
   "main": "dist/main.js",
   "scripts": {
-    "build": "tsc && elm-make src/Main.elm --output dist/elm.js --yes && webpack",
+    "build": "tsc && elm make src/Main.elm --output dist/elm.js && webpack",
     "watch": "chokidar \"**/*.elm\" --initial -c \"npm run build\"",
     "debug": "electron dist/main.js --debug",
     "start": "electron dist/main.js",
@@ -30,7 +30,7 @@
     "chokidar-cli": "^1.2.0",
     "electron": "^2.0.11",
     "electron-context-menu": "^0.9.1",
-    "elm": "^0.18.0",
+    "elm": "^0.19.1-5",
     "prettier": "^1.13.7",
     "ts-loader": "^4.4.2",
     "tslint": "^5.11.0",
@@ -39,6 +39,7 @@
     "webpack-cli": "^3.1.0"
   },
   "dependencies": {
-    "@types/node": "^10.5.2"
+    "@types/node": "12.7.1",
+    "elm-format": "^0.8.5"
   }
 }

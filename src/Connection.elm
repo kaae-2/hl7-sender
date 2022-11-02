@@ -2,7 +2,7 @@ module Connection exposing (..)
 
 import Array exposing (Array, fromList)
 import Json.Decode as Decode exposing (Decoder, decodeString, int)
-import Json.Decode.Pipeline exposing (decode)
+import Json.Decode.Pipeline
 import List.Extra exposing (updateIf)
 
 
@@ -61,7 +61,7 @@ toSavedConnectionsModels json =
 
 decodeConnection : Decoder Model
 decodeConnection =
-    decode Model
+    Decode.succeed Model
         |> Json.Decode.Pipeline.required "name" Decode.string
         |> Json.Decode.Pipeline.required "destinationIp" Decode.string
         |> Json.Decode.Pipeline.required "destinationPort" Decode.int

@@ -6,7 +6,7 @@ import Array exposing (Array, fromList)
 import Char
 import Connection
 import ControlCharacters exposing (Msg)
-import Dom.Scroll
+import Browser.Dom.Scroll
 import HL7
 import Html exposing (..)
 import Html.Attributes exposing (..)
